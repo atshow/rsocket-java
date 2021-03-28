@@ -45,6 +45,7 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest-library'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
 
+    jcstressImplementation(project(":rsocket-test"))
     jcstressImplementation "ch.qos.logback:logback-classic"
 }
 

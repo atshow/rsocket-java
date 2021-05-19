@@ -136,8 +136,11 @@ final class LocalDuplexConnection implements DuplexConnection {
 
     @Override
     public void onNext(ByteBuf buf) {
-      actual.onNext(buf);
-      buf.release();
+      try {
+        actual.onNext(buf);
+      } finally {
+        buf.release();
+      }
     }
 
     @Override

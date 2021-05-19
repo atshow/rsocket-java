@@ -547,7 +547,7 @@ public interface TransportTest {
                                       "Server",
                                       duplexConnection,
                                       Duration.ofMillis(
-                                          ThreadLocalRandom.current().nextInt(10, 1500)))
+                                          ThreadLocalRandom.current().nextInt(100, 500)))
                                   : duplexConnection);
                     }
                   });
@@ -568,7 +568,7 @@ public interface TransportTest {
       final RSocketConnector rSocketConnector =
           RSocketConnector.create()
               .payloadDecoder(PayloadDecoder.ZERO_COPY)
-              .keepAlive(Duration.ofMillis(Integer.MAX_VALUE), Duration.ofMillis(Integer.MAX_VALUE))
+              .keepAlive(Duration.ofMillis(10), Duration.ofHours(1))
               .interceptors(
                   registry -> {
                     if (runClientWithAsyncInterceptors && !withResumability) {
@@ -594,7 +594,7 @@ public interface TransportTest {
                                       "Client",
                                       duplexConnection,
                                       Duration.ofMillis(
-                                          ThreadLocalRandom.current().nextInt(1, 2000)))
+                                          ThreadLocalRandom.current().nextInt(100, 500)))
                                   : duplexConnection);
                     }
                   });

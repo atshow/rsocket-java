@@ -19,9 +19,7 @@ package io.rsocket.transport.local;
 import io.rsocket.test.TransportTest;
 import java.time.Duration;
 import java.util.UUID;
-import org.junit.jupiter.api.Disabled;
 
-@Disabled("leaking somewhere for no clear reason")
 final class LocalResumableTransportTest implements TransportTest {
 
   private final TransportPair transportPair =
@@ -34,7 +32,7 @@ final class LocalResumableTransportTest implements TransportTest {
 
   @Override
   public Duration getTimeout() {
-    return Duration.ofSeconds(10);
+    return Duration.ofMinutes(3);
   }
 
   @Override
